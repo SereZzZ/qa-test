@@ -40,9 +40,5 @@ public class Forms {
         $("#city").setValue("Тверь");
         $(byText("Отправить")).click();
         $("[class=p-0]").shouldBe(visible);
-
-
-
-
     }
 }
