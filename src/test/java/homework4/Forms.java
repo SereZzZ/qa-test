@@ -28,7 +28,7 @@ public class Forms {
         $("[id=mobile]").setValue("89969232323");
         $("[id=dateOfBirth]").click();
         $("button[role=combobox]:has(span[aria-label=Месяц])").click();
-        $(byText("Апрель")).click();
+        $(byText("Май")).click();
         $("button[role=combobox]:has(span[aria-label=Год])").click(); //Найти все кнопки с role="combobox", внутри которых есть <span aria-label="Год">
         $(byText("2020")).click();
         $(byText("8")).click();
