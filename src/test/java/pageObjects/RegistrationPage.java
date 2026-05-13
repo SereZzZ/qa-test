@@ -3,6 +3,7 @@ package pageObjects;
 import com.codeborne.selenide.SelenideElement;
 import lesson9.components.CalendarComponent;
 import lesson9.components.RegistrationModal;
+import lesson9.components.UploadFileComponent;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -13,8 +14,14 @@ public class RegistrationPage {
     public static SelenideElement emailInput = $("[id=email]");
     public static SelenideElement genderInputMan = $("[for=gender-male]");
     public static SelenideElement phone = $("[id=mobile]");
+    public static SelenideElement hobby = $("#hobby-sports");
+    public static SelenideElement address = $("#currentAddress");
+    public static SelenideElement state = $("#state");
+    public static SelenideElement city = $("#city");
+
     CalendarComponent calendarComponent = new CalendarComponent();
     RegistrationModal registrationModal = new RegistrationModal();
+    UploadFileComponent uploadFileComponent = new UploadFileComponent();
 
     public RegistrationPage openPage() {
 
@@ -47,13 +54,43 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setPhone() {
-        phone.setValue("89969232323");
+    public RegistrationPage setPhone(String value ) {
+        phone.setValue(value);
         return this;
     }
 
     public RegistrationPage setBirtDate() {
         calendarComponent.setDate();
+        return this;
+    }
+
+    public RegistrationPage setHobby() {
+        hobby.click();
+        return this;
+    }
+
+    public RegistrationPage setFile() {
+        uploadFileComponent.setFoto();
+        return this;
+    }
+
+    public RegistrationPage setAddress(String value ) {
+        address.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setState(String value ) {
+        state.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setCity(String value ) {
+        city.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage sendForm() {
+        registrationModal.sendTheRegistrationForm();
         return this;
     }
 

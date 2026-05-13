@@ -1,5 +1,6 @@
 package lesson9;
 
+import lesson9.components.UploadFileComponent;
 import org.junit.jupiter.api.Test;
 import pageObjects.TestBase;
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,23 +10,28 @@ public class FormsPageObjectsTest  extends TestBase {
 
     @Test
     void formsPageObjectsTest(){
-        String userName = "Сергей";
+        String
+                userName = "Сергей",
+                email = "Serezha.serez@mail.ru",
+                phoneNumbber = "89969236311",
+                address = "Тверь",
+                state = "Тверская область",
+                city = "Тверь";
 
         registrationPage.openPage()
                 .setFirstName(userName)
                 .setLastName()
-                .setEmail("Serezha.serez@mail.ru")
+                .setEmail(email)
                 .setGenderMan()
-                .setPhone()
-                .setBirtDate();
-        //так тоже можно $(byText("Мужской")).click(); вместо $("[for=gender-male]")
-        $("#hobby-sports").click();
-        $("#picture-upload").uploadFromClasspath("Foto/maxresdefault.jpg");
-        $("#currentAddress").setValue("Тверь");
-        $("#state").setValue("Тверская область");
-        $("#city").setValue("Тверь");
-        $(byText("Отправить")).click();
-        registrationPage.modalVisible();
+                .setPhone(phoneNumbber)
+                .setBirtDate()
+                .setHobby()
+                .setFile()
+                .setAddress(address)
+                .setState(state)
+                .setCity(city)
+                .sendForm()
+                .modalVisible();
     }
 }
 
