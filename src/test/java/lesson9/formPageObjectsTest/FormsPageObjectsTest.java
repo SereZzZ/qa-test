@@ -1,9 +1,8 @@
-package lesson9;
+package lesson9.formPageObjectsTest;
 
-import lesson9.components.UploadFileComponent;
 import org.junit.jupiter.api.Test;
 import pageObjects.TestBase;
-import static com.codeborne.selenide.Selectors.byText;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class FormsPageObjectsTest  extends TestBase {
@@ -12,18 +11,19 @@ public class FormsPageObjectsTest  extends TestBase {
     void formsPageObjectsTest(){
         String
                 userName = "Сергей",
+                last = "gtnhjd",
                 email = "Serezha.serez@mail.ru",
-                phoneNumbber = "89969236311",
+                phoneNumber = "89969236311",
                 address = "Тверь",
                 state = "Тверская область",
                 city = "Тверь";
 
         registrationPage.openPage()
                 .setFirstName(userName)
-                .setLastName()
+                .setLastName(last)
                 .setEmail(email)
                 .setGenderMan()
-                .setPhone(phoneNumbber)
+                .setPhone(phoneNumber)
                 .setBirtDate()
                 .setHobby()
                 .setFile()

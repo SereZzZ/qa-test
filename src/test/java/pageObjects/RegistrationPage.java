@@ -5,6 +5,8 @@ import lesson9.components.CalendarComponent;
 import lesson9.components.RegistrationModal;
 import lesson9.components.UploadFileComponent;
 
+import java.util.Arrays;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -18,6 +20,7 @@ public class RegistrationPage {
     public static SelenideElement address = $("#currentAddress");
     public static SelenideElement state = $("#state");
     public static SelenideElement city = $("#city");
+    public static SelenideElement lastNameInput = $("[name=lastName]");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     RegistrationModal registrationModal = new RegistrationModal();
@@ -38,8 +41,8 @@ public class RegistrationPage {
 
     // 2) Тут мы задаем значение в методе и отдаем его в тест
     // А тут мы обращаемся к элементу как к созданной сущности
-    public RegistrationPage setLastName() {
-        $("[name=lastName]").setValue("Петров");
+    public RegistrationPage setLastName(String value) {
+        lastNameInput.setValue(value);
         return this;
     }
 
@@ -54,7 +57,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setPhone(String value ) {
+    public RegistrationPage setPhone(String value) {
         phone.setValue(value);
         return this;
     }
@@ -74,17 +77,17 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setAddress(String value ) {
+    public RegistrationPage setAddress(String value) {
         address.setValue(value);
         return this;
     }
 
-    public RegistrationPage setState(String value ) {
+    public RegistrationPage setState(String value) {
         state.setValue(value);
         return this;
     }
 
-    public RegistrationPage setCity(String value ) {
+    public RegistrationPage setCity(String value) {
         city.setValue(value);
         return this;
     }

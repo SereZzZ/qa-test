@@ -1,7 +1,6 @@
 package lesson9.components;
 
 import com.codeborne.selenide.SelenideElement;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class UploadFileComponent {
